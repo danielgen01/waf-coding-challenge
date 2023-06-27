@@ -4,7 +4,7 @@ import { BsArrowDownRight } from "react-icons/bs"
 
 const Hero: React.FC = () => {
 	return (
-		<section className="grid grid-cols-1 lg:grid-cols-2 mt-5 place-items-center px-10 lg:px-20 gap-4">
+		<section className="grid grid-cols-1 lg:grid-cols-2 mt-5 place-items-center px-10 lg:px-20 gap-4 py-10">
 			<div className="description flex flex-col gap-5 lg:gap-10 md:items-center ">
 				<h1 className="text-5xl text-main-text-color font-semibold leading-normal text-left lg:text-7xl md:text-center">
 					Buy your textbooks for the best{" "}
