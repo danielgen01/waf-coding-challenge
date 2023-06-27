@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
 				</div>
 			</div>
 
-			<div className="image-container bg-bright-blue rounded-tr-3xl rounded-bl-3xl">
+			<div className="image-container bg-bright-blue rounded-tr-[100px] rounded-bl-[100px]">
 				<Image src={"/images/Books.png"} width={500} height={200} alt="Books" />
 			</div>
 		</section>
