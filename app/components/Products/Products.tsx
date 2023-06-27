@@ -41,9 +41,9 @@ type Book = {
 
 const Product: React.FC<Book> = ({ title, image, author, price, id }) => {
 	return (
-		<div className="h-96 rounded-md">
+		<div className="h-96 rounded-md ">
 			<div className="product-container-content px-10 py-10 shadow-lg h-72 flex flex-col gap-5 items-center">
-				<Image src={image} alt="img" width={120} height={100} />
+				<Image src={image} alt="img" width={120} height={100} className="hover:scale-105 duration-200"/>
 				<button className="flex items-center gap-2 bg-dark-red text-white font-normal rounded-md px-2 hover:opacity-80 duration-200 md:text-md xl:text-2xl py-1">
 					Add to bag <BsHandbag />
 				</button>
@@ -54,7 +54,9 @@ const Product: React.FC<Book> = ({ title, image, author, price, id }) => {
 					{title}
 				</span>
 				<p className="text-sm xl:text-lg">{author}</p>
-				<span className="text-[#ED553B] font-bold text-xl xl:text-2xl">€ {price}</span>
+				<span className="text-[#ED553B] font-bold text-xl xl:text-2xl">
+					€ {price}
+				</span>
 			</div>
 		</div>
 	)
