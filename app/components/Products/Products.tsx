@@ -13,7 +13,7 @@ const Products: React.FC = () => {
 				<h3 className="font-bold text-3xl">All books</h3>
 			</div>
 
-			<ul className="items grid grid-cols-2  xl:grid-cols-5 gap-5 gap-y-20">
+			<ul className="items grid grid-cols-2 xl:grid-cols-3 gap-5 gap-y-20">
 				{Booklist.map((book) => (
 					<Product
 						key={book.id}
@@ -50,11 +50,11 @@ const Product: React.FC<Book> = ({ title, image, author, price, id }) => {
 			</div>
 
 			<div className="book-description flex flex-col items-center mt-4 gap-2">
-				<span className="font-bold text-[#393280] text-md text-center">
+				<span className="font-bold text-[#393280] text-md text-center xl:text-xl">
 					{title}
 				</span>
-				<p className="text-sm">{author}</p>
-				<span className="text-[#ED553B] font-bold text-xl">€ {price}</span>
+				<p className="text-sm xl:text-lg">{author}</p>
+				<span className="text-[#ED553B] font-bold text-xl xl:text-2xl">€ {price}</span>
 			</div>
 		</div>
 	)
