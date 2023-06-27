@@ -1,0 +1,46 @@
+[
+	{
+		"name": "Harry Potter und der Stein der Weisen",
+		"imageSrc": "/images/stein_der_weisen.jpg",
+		"price": 8,
+		"author": "J.K Rowling",
+		"id": "harry-potter-1",
+		"trending": true
+	},
+
+	{
+		"name": "Harry Potter und die Kammer der Schreckens",
+		"imageSrc": "/images/kammer_des_schrecklens.jpg",
+		"price": 8,
+		"author": "J.K Rowling",
+		"id": "harry-potter-2",
+		"trending": false
+	},
+
+	{
+		"name": "Harry Potter und der Gefangene von Askaban",
+		"imageSrc": "/images/gefangene_askaban.webp",
+		"price": 8,
+		"author": "J.K Rowling",
+		"id": "harry-potter-3",
+		"trending": false
+	},
+
+	{
+		"name": "Harry Potter und der Feuerkelch",
+		"imageSrc": "/images/feuerklech.jpg",
+		"price": 8,
+		"author": "J.K Rowling",
+		"id": "harry-potter-4",
+		"trending": false
+	},
+
+	{
+		"name": "Harry Potter und der Orden des Phönix",
+		"imageSrc": "/images/orden_des_phönix.webp",
+		"price": 8,
+		"author": "J.K Rowling",
+		"id": "harry-potter-5",
+		"trending": false
+	}
+]
