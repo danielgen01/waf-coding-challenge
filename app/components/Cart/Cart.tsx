@@ -6,12 +6,14 @@ type cartprops = {
 	isCartOpen: boolean
 	setIsCartOpen: any
 	cartItems: any
+	setCartItems:any
 }
 
 const Cart: React.FC<cartprops> = ({
 	isCartOpen,
 	setIsCartOpen,
 	cartItems,
+	setCartItems
 }) => {
 	function toggleCart() {
 		setIsCartOpen(!isCartOpen)
@@ -26,7 +28,7 @@ const Cart: React.FC<cartprops> = ({
 					<ul className="cart-items mt-5 grid grid-cols-1 overflow-y-scroll h-[95%] ">
 						{cartItems.map((item:any, index:number) => (
 							<li key={index}>
-								<ListItem item={item} />
+								<ListItem item={item} cartItems={cartItems} setCartItems={setCartItems} />
 							</li>
 						))}
 					</ul>
