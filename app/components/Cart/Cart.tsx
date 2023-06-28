@@ -5,7 +5,7 @@ import ListItem from "./ListItem"
 type cartprops = {
 	isCartOpen: boolean
 	setIsCartOpen: any
-	cartItems: any
+	cartItems: []
 	setCartItems: any
 }
 

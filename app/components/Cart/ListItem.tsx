@@ -12,7 +12,7 @@ type Book = {
 
 type ListItemProps = {
 	item: Book
-	cartItems: any
+	cartItems: []
 	setCartItems: any
 }
 

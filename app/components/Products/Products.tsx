@@ -82,6 +82,7 @@ const Product: React.FC<ProductProps> = ({
 	return (
 		<div className="h-96 rounded-md product-entire-container">
 			<div className="product-content px-10 py-10 shadow-lg h-72 flex flex-col gap-5 items-center">
+				
 				<Image
 					src={image}
 					alt="img"
@@ -96,7 +97,7 @@ const Product: React.FC<ProductProps> = ({
 					Add to bag <BsHandbag />
 				</button>
 			</div>
-
+				{/* The book description like title, author etc... */}
 			<div className="book-description flex flex-col items-center mt-4 gap-2">
 				<span className="font-bold text-[#393280] text-md text-center xl:text-xl">
 					{title}
