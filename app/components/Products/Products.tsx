@@ -81,7 +81,7 @@ const Product: React.FC<ProductProps> = ({
 
 	return (
 		<div className="h-96 rounded-md product-entire-container">
-			<div className="product-content px-10 py-10 shadow-lg h-72 flex flex-col gap-5 items-center">
+			<div className="product-content justify-center lg:py-10 shadow-lg h-72 flex flex-col gap-5 items-center">
 				
 				<Image
 					src={image}
