@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import { BsArrowDownRight } from "react-icons/bs"
+import { Link } from "react-scroll"
 
 const Hero: React.FC = () => {
 	return (
@@ -16,9 +17,11 @@ const Hero: React.FC = () => {
 				</p>
 
 				<div className="buttons">
-					<button className="bg-dark-red px-5 py-3 rounded-full text-white lg:px-10 lg:py-5 text-xl hover:opacity-80 duration-150 flex items-center gap-3">
-						See all books <BsArrowDownRight />
-					</button>
+					<Link to="allbooks" smooth={true} duration={1000} offset={-50}>
+						<button className="bg-dark-red px-5 py-3 rounded-full text-white lg:px-10 lg:py-5 text-xl hover:opacity-80 duration-150 flex items-center gap-3">
+							See all books <BsArrowDownRight />
+						</button>
+					</Link>
 				</div>
 			</div>
 
