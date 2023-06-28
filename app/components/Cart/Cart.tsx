@@ -46,7 +46,6 @@ const Cart: React.FC<cartprops> = ({
 						))}
 					</ul>
 				</div>
-				<hr />
 			</aside>
 		</section>
 	)
