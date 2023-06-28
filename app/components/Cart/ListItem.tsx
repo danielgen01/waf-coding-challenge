@@ -6,6 +6,7 @@ type Book = {
 	price:number
 	id:any 
 	image:string
+	quantity:number
 }
 
 type ListItemProps = {
@@ -33,7 +34,7 @@ const ListItem: React.FC<ListItemProps> = ({item}) => {
 			<div className="quantity flex items-center justify-center ">
 				<input
 					type="number"
-					defaultValue={0}
+					value={item.quantity}
 					className="w-10 border-2 border-gray-400 rounded-md text-center outline-light-blue"
 				/>
 			</div>
