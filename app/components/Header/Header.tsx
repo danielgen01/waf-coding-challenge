@@ -4,7 +4,16 @@ import BagIcon from "@/public/icons/components/Bag"
 import { BsHandbag } from "react-icons/bs"
 import Link from "next/link"
 
-const Header: React.FC = () => {
+type Headerprops = {
+	isCartOpen: boolean
+	setIsCartOpen: any
+}
+
+const Header: React.FC<Headerprops> = ({ isCartOpen, setIsCartOpen }) => {
+	function toggleCart() {
+		setIsCartOpen(!isCartOpen)
+	}
+
 	return (
 		<header className="px-5 lg:px-10 flex items-center h-32 justify-between shadow-md">
 			<Link className="logo flex items-center gap-2" href={"/"}>
@@ -16,7 +25,7 @@ const Header: React.FC = () => {
 			</Link>
 
 			<div className="cart-icon">
-				<button className="flex items-center">
+				<button className="flex items-center" onClick={toggleCart}>
 					<BsHandbag className="text-3xl" />
 					<span className="bg-dark-red rounded-full w-5 h-5 flex items-center justify-center text-white font-bold px-1 py-1 -ml-4 -mt-2">
 						0
