@@ -12,10 +12,36 @@ type Book = {
 
 type ListItemProps = {
 	item: Book
+	cartItems: any
+	setCartItems: any
 }
 
-const ListItem: React.FC<ListItemProps> = ({ item }) => {
-	console.log(item)
+const ListItem: React.FC<ListItemProps> = ({
+	item,
+	cartItems,
+	setCartItems,
+}) => {
+	const handleMinusButtonClick = () => {
+		if (item.quantity > 1) {
+			const updatedCartItems = cartItems.map((cartItem: Book) => {
+				if (cartItem.id === item.id) {
+					return { ...cartItem, quantity: cartItem.quantity - 1 }
+				}
+				return cartItem
+			})
+			setCartItems(updatedCartItems)
+		}
+	}
+
+	const handlePlusButtonClick = () => {
+		const updatedCartItems = cartItems.map((cartItem: Book) => {
+			if (cartItem.id === item.id) {
+				return { ...cartItem, quantity: cartItem.quantity + 1 }
+			}
+			return cartItem
+		})
+		setCartItems(updatedCartItems)
+	}
 
 	return (
 		<section className="cart-item grid grid-cols-3 w-full h-[33%]">
@@ -31,7 +57,10 @@ const ListItem: React.FC<ListItemProps> = ({ item }) => {
 
 			<div className="quantity flex items-center justify-center ">
 				<button>
-					<AiOutlineMinus className="cursor-pointer" />
+					<AiOutlineMinus
+						className="cursor-pointer"
+						onClick={handleMinusButtonClick}
+					/>
 				</button>
 				<input
 					type="number"
@@ -40,7 +69,10 @@ const ListItem: React.FC<ListItemProps> = ({ item }) => {
 					className="w-10  rounded-md text-center outline-light-blue cursor-default"
 				/>
 				<button>
-					<AiOutlinePlus className="cursor-pointer" />
+					<AiOutlinePlus
+						className="cursor-pointer"
+						onClick={handlePlusButtonClick}
+					/>
 				</button>
 			</div>
 
