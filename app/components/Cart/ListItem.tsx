@@ -30,14 +30,18 @@ const ListItem: React.FC<ListItemProps> = ({ item }) => {
 			</div>
 
 			<div className="quantity flex items-center justify-center ">
-				<AiOutlineMinus className="cursor-pointer" />
+				<button>
+					<AiOutlineMinus className="cursor-pointer" />
+				</button>
 				<input
 					type="number"
 					value={item.quantity}
 					readOnly={true}
 					className="w-10  rounded-md text-center outline-light-blue cursor-default"
 				/>
-				<AiOutlinePlus className="cursor-pointer" />
+				<button>
+					<AiOutlinePlus className="cursor-pointer" />
+				</button>
 			</div>
 
 			<div className="remove flex items-center justify-center">
