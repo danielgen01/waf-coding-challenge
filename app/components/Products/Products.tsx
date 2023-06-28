@@ -6,7 +6,7 @@ import { BsHandbag } from "react-icons/bs"
 type CartProps = {
 	cartItems: CartItem[]
 	setCartItems: any
-  }
+}
 
 const Products: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
 	return (
@@ -29,6 +29,7 @@ const Products: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
 						id={book.id}
 						cartItems={cartItems}
 						setCartItems={setCartItems}
+						quantity={1}
 					/>
 				))}
 			</ul>
@@ -38,19 +39,16 @@ const Products: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
 
 export default Products
 
-
-
 type CartItem = {
 	id: any
 	title: string
 	author: string
 	price: number
 	image: string
-  }
-  
-  type ProductProps = CartItem & CartProps
-  
-  
+	quantity:number
+}
+
+type ProductProps = CartItem & CartProps
 
 const Product: React.FC<ProductProps> = ({
 	title,
@@ -61,11 +59,24 @@ const Product: React.FC<ProductProps> = ({
 	cartItems,
 	setCartItems,
 }) => {
-
 	function addToCart() {
-		const newItem = { id, title, author, price, image }
-		setCartItems([...cartItems, newItem])
-		console.log(cartItems,)
+		// check if the product has already been added
+		const existingItem = cartItems.find((cartItem: any) => cartItem.id === id)
+
+		if (existingItem) {
+			// if item already exists quantity +=1 
+			const updatedCartItems = cartItems.map((cartItem: any) => {
+				if (cartItem.id === id) {
+					return { ...cartItem, quantity: cartItem.quantity + 1 }
+				}
+				return cartItem
+			})
+			setCartItems(updatedCartItems)
+		} else {
+			// if the item is not already in the array create new item
+			const newItem = { id, title, author, price, image, quantity: 1 }
+			setCartItems([...cartItems, newItem])
+		}
 	}
 
 	return (
@@ -78,7 +89,10 @@ const Product: React.FC<ProductProps> = ({
 					height={100}
 					className="hover:scale-105 duration-200"
 				/>
-				<button className="flex items-center gap-2 bg-dark-red text-white font-normal rounded-md px-2 hover:opacity-80 duration-200 md:text-md xl:text-2xl py-1"onClick={addToCart}>
+				<button
+					className="flex items-center gap-2 bg-dark-red text-white font-normal rounded-md px-2 hover:opacity-80 duration-200 md:text-md xl:text-2xl py-1"
+					onClick={addToCart}
+				>
 					Add to bag <BsHandbag />
 				</button>
 			</div>
