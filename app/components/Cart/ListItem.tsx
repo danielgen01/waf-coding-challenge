@@ -17,11 +17,11 @@ const ListItem: React.FC = () => {
 				<p className="text-[#ED553B] font-bold text-lg xl:text-xl">Price</p>
 			</div>
 
-			<div className="quantity flex items-center justify-center">
+			<div className="quantity flex items-center justify-center ">
 				<input
 					type="number"
 					defaultValue={0}
-					className="w-10 border-2 border-gray-400 rounded-md text-center"
+					className="w-10 border-2 border-gray-400 rounded-md text-center outline-light-blue"
 				/>
 			</div>
 
