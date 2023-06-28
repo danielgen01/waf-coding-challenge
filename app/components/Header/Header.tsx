@@ -7,9 +7,10 @@ import Link from "next/link"
 type Headerprops = {
 	isCartOpen: boolean
 	setIsCartOpen: any
+	cartItems:any
 }
 
-const Header: React.FC<Headerprops> = ({ isCartOpen, setIsCartOpen }) => {
+const Header: React.FC<Headerprops> = ({ isCartOpen, setIsCartOpen , cartItems}) => {
 	function toggleCart() {
 		setIsCartOpen(!isCartOpen)
 	}
@@ -28,7 +29,7 @@ const Header: React.FC<Headerprops> = ({ isCartOpen, setIsCartOpen }) => {
 				<button className="flex items-center" onClick={toggleCart}>
 					<BsHandbag className="text-3xl" />
 					<span className="bg-dark-red rounded-full w-5 h-5 flex items-center justify-center text-white font-bold px-1 py-1 -ml-4 -mt-2">
-						0
+						{cartItems.length}
 					</span>
 				</button>
 			</div>
