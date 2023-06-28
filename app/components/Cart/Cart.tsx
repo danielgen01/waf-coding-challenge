@@ -6,17 +6,25 @@ type cartprops = {
 	isCartOpen: boolean
 	setIsCartOpen: any
 	cartItems: any
-	setCartItems:any
+	setCartItems: any
 }
 
 const Cart: React.FC<cartprops> = ({
 	isCartOpen,
 	setIsCartOpen,
 	cartItems,
-	setCartItems
+	setCartItems,
 }) => {
 	function toggleCart() {
 		setIsCartOpen(!isCartOpen)
+	}
+
+	const calculateTotal = () => {
+		let total = 0
+		cartItems.forEach((item: any) => {
+			total += item.price * item.quantity
+		})
+		return total
 	}
 
 	return (
@@ -25,14 +33,20 @@ const Cart: React.FC<cartprops> = ({
 			<aside className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  lg:top-1 lg:right-2 bg-white  w-96 rounded-lg h-[90%]">
 				<div className="cart-content py-10 px-5 w-full h-full ">
 					<h1 className="text-center text-2xl font-bold">Cart</h1>
+					<h2>Total: € {calculateTotal()}</h2>
 					<ul className="cart-items mt-5 grid grid-cols-1 overflow-y-scroll h-[95%] ">
-						{cartItems.map((item:any, index:number) => (
+						{cartItems.map((item: any, index: number) => (
 							<li key={index}>
-								<ListItem item={item} cartItems={cartItems} setCartItems={setCartItems} />
+								<ListItem
+									item={item}
+									cartItems={cartItems}
+									setCartItems={setCartItems}
+								/>
 							</li>
 						))}
 					</ul>
 				</div>
+				<hr />
 			</aside>
 		</section>
 	)
