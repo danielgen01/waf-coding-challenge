@@ -51,7 +51,7 @@ const ListItem: React.FC<ListItemProps> = ({
 					{item.title}
 				</span>
 				<p className="text-[#ED553B] font-bold text-lg xl:text-xl">
-					€ {item.price}
+					€ {item.price * item.quantity}
 				</p>
 			</div>
 
