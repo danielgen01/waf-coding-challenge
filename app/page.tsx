@@ -8,14 +8,15 @@ import { useState } from "react"
 
 export default function App() {
 	const [isCartOpen, setIsCartOpen] = useState<boolean>(false)
+	const [cartItems, setCartItems] = useState([])
 
 	return (
 		<>
-			<Header isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+			<Header isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartItems={cartItems} />
 			<main>
 				<Hero />
-				<Products />
-				<Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+				<Products cartItems={cartItems} setCartItems={setCartItems}/>
+				<Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartItems={cartItems} />
 			</main>
 
 			<footer></footer>
