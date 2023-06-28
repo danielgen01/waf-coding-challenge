@@ -12,11 +12,20 @@ export default function App() {
 
 	return (
 		<>
-			<Header isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartItems={cartItems} />
+			<Header
+				isCartOpen={isCartOpen}
+				setIsCartOpen={setIsCartOpen}
+				cartItems={cartItems}
+			/>
 			<main>
 				<Hero />
-				<Products cartItems={cartItems} setCartItems={setCartItems}/>
-				<Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} cartItems={cartItems} />
+				<Products cartItems={cartItems} setCartItems={setCartItems} />
+				<Cart
+					isCartOpen={isCartOpen}
+					setIsCartOpen={setIsCartOpen}
+					cartItems={cartItems}
+					setCartItems={setCartItems}
+				/>
 			</main>
 
 			<footer></footer>
