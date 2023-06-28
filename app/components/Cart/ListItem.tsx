@@ -43,6 +43,14 @@ const ListItem: React.FC<ListItemProps> = ({
 		setCartItems(updatedCartItems)
 	}
 
+	const removeItem = () => {
+		const updatedCartItems = cartItems.filter((cartItem: Book) => {
+			return cartItem.id !== item.id
+		})
+		setCartItems(updatedCartItems)
+	}
+	
+
 	return (
 		<section className="cart-item grid grid-cols-3 w-full h-[33%]">
 			<div className="image-title-price flex flex-col items-center gap-2">
@@ -77,7 +85,10 @@ const ListItem: React.FC<ListItemProps> = ({
 			</div>
 
 			<div className="remove flex items-center justify-center">
-				<button className="bg-dark-red text-white font-sembibold py-2 px-4 rounded-full hover:opacity-75 duration-150 outline-none">
+				<button
+					className="bg-dark-red text-white font-sembibold py-2 px-4 rounded-full hover:opacity-75 duration-150 outline-none"
+					onClick={removeItem}
+				>
 					Remove
 				</button>
 			</div>
