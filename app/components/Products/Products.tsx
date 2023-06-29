@@ -3,12 +3,23 @@ import Booklist from "../../../BookList.json"
 import Image from "next/image"
 import { BsHandbag } from "react-icons/bs"
 
-type CartProps = {
-	cartItems: CartItem[]
+type Item = {
+	id: any
+	title: string
+	author: string
+	price: number
+	image: string
+	quantity: number
+}
+
+type ProductListProps = {
+	cartItems: Item[]
 	setCartItems: any
 }
 
-const Products: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
+type ProductProps = Item & ProductListProps
+
+const Products: React.FC<ProductListProps> = ({ cartItems, setCartItems }) => {
 	return (
 		<section
 			className="py-32 flex flex-col px-10 lg:px-20 gap-5 mt-10 "
@@ -39,17 +50,6 @@ const Products: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
 
 export default Products
 
-type CartItem = {
-	id: any
-	title: string
-	author: string
-	price: number
-	image: string
-	quantity:number
-}
-
-type ProductProps = CartItem & CartProps
-
 const Product: React.FC<ProductProps> = ({
 	title,
 	image,
@@ -64,7 +64,7 @@ const Product: React.FC<ProductProps> = ({
 		const existingItem = cartItems.find((cartItem: any) => cartItem.id === id)
 
 		if (existingItem) {
-			// if item already exists quantity +=1 
+			// if item already exists quantity +=1
 			const updatedCartItems = cartItems.map((cartItem: any) => {
 				if (cartItem.id === id) {
 					return { ...cartItem, quantity: cartItem.quantity + 1 }
@@ -82,7 +82,6 @@ const Product: React.FC<ProductProps> = ({
 	return (
 		<div className="h-96 rounded-md product-entire-container">
 			<div className="product-content justify-center lg:py-10 shadow-lg h-72 flex flex-col gap-5 items-center">
-				
 				<Image
 					src={image}
 					alt="img"
@@ -97,7 +96,7 @@ const Product: React.FC<ProductProps> = ({
 					Add to bag <BsHandbag />
 				</button>
 			</div>
-				{/* The book description like title, author etc... */}
+			{/* The book description like title, author etc... */}
 			<div className="book-description flex flex-col items-center mt-4 gap-2">
 				<span className="font-bold text-[#393280] text-md text-center xl:text-xl">
 					{title}
