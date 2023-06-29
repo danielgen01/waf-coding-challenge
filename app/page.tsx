@@ -10,6 +10,12 @@ export default function App() {
 	const [isCartOpen, setIsCartOpen] = useState<boolean>(false)
 	const [cartItems, setCartItems] = useState([])
 
+	if (isCartOpen) {
+		document.body.style.overflow = "hidden"
+	} else {
+		document.body.style.overflow = "scroll"
+	}
+
 	return (
 		<>
 			<Header
