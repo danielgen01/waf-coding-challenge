@@ -2,7 +2,7 @@ import React from "react"
 import Image from "next/image"
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 
-type Book = {
+export type Book = {
 	title: string
 	price: number
 	id: any
