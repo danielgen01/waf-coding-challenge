@@ -4,17 +4,19 @@ import Header from "./components/Header/Header"
 import Hero from "./components/Hero/Hero"
 import Products from "./components/Products/Products"
 import Cart from "./components/Cart/Cart"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function App() {
 	const [isCartOpen, setIsCartOpen] = useState<boolean>(false)
 	const [cartItems, setCartItems] = useState([])
 
-	if (isCartOpen) {
-		document.body.style.overflow = "hidden"
-	} else {
-		document.body.style.overflow = "scroll"
-	}
+	useEffect(() => {
+		if (isCartOpen) {
+			document.body.style.overflow = "hidden"
+		} else {
+			document.body.style.overflow = "scroll"
+		}
+	}, [isCartOpen])
 
 	return (
 		<>
