@@ -21,6 +21,7 @@ const ListItem: React.FC<ListItemProps> = ({
 	cartItems,
 	setCartItems,
 }) => {
+	// remove 1 quanty from the clicked cart item
 	const handleMinusButtonClick = () => {
 		if (item.quantity > 1) {
 			const updatedCartItems = cartItems.map((cartItem: Book) => {
@@ -33,6 +34,7 @@ const ListItem: React.FC<ListItemProps> = ({
 		}
 	}
 
+	// add 1 quanty to the clicked cart item
 	const handlePlusButtonClick = () => {
 		const updatedCartItems = cartItems.map((cartItem: Book) => {
 			if (cartItem.id === item.id) {
@@ -43,13 +45,13 @@ const ListItem: React.FC<ListItemProps> = ({
 		setCartItems(updatedCartItems)
 	}
 
+	// Delete the clicked cart item from the cart array
 	const removeItem = () => {
 		const updatedCartItems = cartItems.filter((cartItem: Book) => {
 			return cartItem.id !== item.id
 		})
 		setCartItems(updatedCartItems)
 	}
-	
 
 	return (
 		<section className="cart-item grid grid-cols-3 w-[95%] h-[33%] gap-2 py-5">

@@ -16,6 +16,8 @@ const Cart: React.FC<cartprops> = ({
 	cartItems,
 	setCartItems,
 }) => {
+
+	// Functions 
 	function toggleCart() {
 		setIsCartOpen(!isCartOpen)
 	}
