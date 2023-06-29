@@ -53,7 +53,7 @@ const ListItem: React.FC<ListItemProps> = ({
 
 	return (
 		<section className="cart-item grid grid-cols-3 w-[95%] h-[33%] gap-2 py-5">
-			<div className="image-title-price flex flex-col items-center gap-2">
+			<div className="image-title-price flex flex-col items-center gap-2 w-full">
 				<Image src={item.image} width={75} height={25} alt="product-img" />
 				<span className="font-bold text-[#393280] text-center text-[10px]">
 					{item.title}
